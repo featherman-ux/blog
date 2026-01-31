@@ -1,0 +1,21 @@
+---
+import type { Entry } from '~/types';
+
+interface Props {
+  entry: Entry;
+}
+
+const { entry } = Astro.props;
+const hasSource = entry.sourceTitle || entry.sourceAuthor || entry.sourceLink;
+---
+
+{hasSource && (
+  <section class="rounded-3xl border border-gray-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/40 p-6 space-y-2">
+    <p class="text-xs uppercase tracking-[0.4em] text-muted">Source</p>
+    {entry.sourceTitle && <h3 class="text-xl font-semibold">{entry.sourceTitle}</h3>}
+    {entry.sourceAuthor && <p class="text-sm text-muted">by {entry.sourceAuthor}</p>}
+    {entry.sourceLink && (
+      <a class="text-sm text-primary hover:underline" href={entry.sourceLink} target="_blank" rel="noreferrer">Visit source</a>
+    )}
+  </section>
+)}

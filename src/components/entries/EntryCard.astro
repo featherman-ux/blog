@@ -1,0 +1,50 @@
+---
+import type { Entry } from '~/types';
+
+interface Props {
+  entry: Entry;
+  variant?: 'default' | 'compact';
+}
+
+const { entry, variant = 'default' } = Astro.props;
+
+const themeAccent: Record<Entry['theme'], string> = {
+  subconscious: 'bg-amber-200 text-amber-900 dark:bg-amber-300/30 dark:text-amber-100',
+  'tech-society': 'bg-cyan-200 text-cyan-900 dark:bg-cyan-300/30 dark:text-cyan-100',
+  misc: 'bg-emerald-200 text-emerald-900 dark:bg-emerald-300/30 dark:text-emerald-100',
+};
+---
+
+<article
+  class:list={[
+    'entry-card rounded-[28px] border border-gray-200/80 dark:border-white/10 bg-white/80 dark:bg-slate-900/40 backdrop-blur-sm shadow-[0_15px_35px_rgba(15,23,42,0.05)] transition hover:-translate-y-1 p-5 flex flex-col gap-4',
+    { 'md:flex-row md:items-center': variant === 'compact' },
+  ]}
+>
+  <div class="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-muted">
+    <span class:list={[
+      'rounded-full px-3 py-1 text-[10px] font-semibold tracking-[0.3em] bg-slate-900 text-white dark:bg-white dark:text-slate-900',
+      { hidden: variant === 'compact' },
+    ]}
+      >{entry.kind}</span
+    >
+    <span class:list={['px-3 py-1 rounded-full text-[11px] font-semibold', themeAccent[entry.theme]]}>
+      {entry.theme.replace('-', ' ')}
+    </span>
+    <span class="text-muted lowercase tracking-normal">{entry.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+  </div>
+
+  <div class="space-y-3">
+    <h3 class="text-2xl font-semibold leading-snug">
+      <a class="hover:text-primary" href={entry.permalink}>{entry.title}</a>
+    </h3>
+    {entry.summary && variant === 'default' && <p class="text-base leading-relaxed text-muted">{entry.summary}</p>}
+    {entry.tags && entry.tags.length > 0 && (
+      <ul class="flex flex-wrap gap-2 text-xs">
+        {entry.tags.map((tag) => (
+          <li class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 dark:bg-white/10 dark:text-gray-200">#{tag}</li>
+        ))}
+      </ul>
+    )}
+  </div>
+</article>
