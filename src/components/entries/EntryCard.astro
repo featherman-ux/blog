@@ -22,16 +22,18 @@ const themeAccent: Record<Entry['theme'], string> = {
   ]}
 >
   <div class="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-muted">
-    <span class:list={[
-      'rounded-full px-3 py-1 text-[10px] font-semibold tracking-[0.3em] bg-slate-900 text-white dark:bg-white dark:text-slate-900',
-      { hidden: variant === 'compact' },
-    ]}
-      >{entry.kind}</span
+    <span
+      class:list={[
+        'rounded-full px-3 py-1 text-[10px] font-semibold tracking-[0.3em] bg-slate-900 text-white dark:bg-white dark:text-slate-900',
+        { hidden: variant === 'compact' },
+      ]}>{entry.kind}</span
     >
     <span class:list={['px-3 py-1 rounded-full text-[11px] font-semibold', themeAccent[entry.theme]]}>
       {entry.theme.replace('-', ' ')}
     </span>
-    <span class="text-muted lowercase tracking-normal">{entry.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+    <span class="text-muted lowercase tracking-normal"
+      >{entry.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span
+    >
   </div>
 
   <div class="space-y-3">
@@ -39,12 +41,14 @@ const themeAccent: Record<Entry['theme'], string> = {
       <a class="hover:text-primary" href={entry.permalink}>{entry.title}</a>
     </h3>
     {entry.summary && variant === 'default' && <p class="text-base leading-relaxed text-muted">{entry.summary}</p>}
-    {entry.tags && entry.tags.length > 0 && (
-      <ul class="flex flex-wrap gap-2 text-xs">
-        {entry.tags.map((tag) => (
-          <li class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 dark:bg-white/10 dark:text-gray-200">#{tag}</li>
-        ))}
-      </ul>
-    )}
+    {
+      entry.tags && entry.tags.length > 0 && (
+        <ul class="flex flex-wrap gap-2 text-xs">
+          {entry.tags.map((tag) => (
+            <li class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 dark:bg-white/10 dark:text-gray-200">#{tag}</li>
+          ))}
+        </ul>
+      )
+    }
   </div>
 </article>

@@ -30,8 +30,7 @@ const normalizeEntry = async (entry: CollectionEntry<'entries'>): Promise<Entry>
 
 let cachedEntries: Entry[] | undefined;
 
-const sortEntries = (entries: Entry[]) =>
-  entries.sort((a, b) => b.date.valueOf() - a.date.valueOf());
+const sortEntries = (entries: Entry[]) => entries.sort((a, b) => b.date.valueOf() - a.date.valueOf());
 
 export const fetchEntries = async ({ includeDrafts = false }: { includeDrafts?: boolean } = {}) => {
   if (!cachedEntries || includeDrafts) {

@@ -19,10 +19,12 @@ const formattedDate = entry.date.toLocaleDateString('en-US', {
   <span class="uppercase tracking-[0.4em] text-xs">{entry.kind}</span>
   <span aria-hidden="true">•</span>
   <span class="capitalize">{entry.theme.replace('-', ' ')}</span>
-  {typeof entry.rating === 'number' && (
-    <>
-      <span aria-hidden="true">•</span>
-      <span>Rating: {entry.rating}/5</span>
-    </>
-  )}
+  {
+    typeof entry.rating === 'number' && (
+      <>
+        <span aria-hidden="true">•</span>
+        <span>Rating: {entry.rating}/5</span>
+      </>
+    )
+  }
 </div>

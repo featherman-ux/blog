@@ -28,12 +28,14 @@ const hasEntries = latest.length > 0;
       <a class="text-sm text-primary" href="/library">Library</a>
     </div>
     <p class="text-muted">No notes published yet.</p>
-    {hasEntries && (
-      <div class="space-y-4">
-        {latest.map((entry) => (
-          <EntryCard entry={entry} />
-        ))}
-      </div>
-    )}
+    {
+      hasEntries && (
+        <div class="space-y-4">
+          {latest.map((entry) => (
+            <EntryCard entry={entry} />
+          ))}
+        </div>
+      )
+    }
   </section>
 </Layout>

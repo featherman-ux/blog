@@ -23,15 +23,15 @@ npm run build # static output in ./dist
 ```md
 ---
 title: 'Test note'
-date: 2026-01-31       # ISO date
-kind: essay            # book | paper | essay
-theme: misc            # subconscious | tech-society | misc
+date: 2026-01-31 # ISO date
+kind: essay # book | paper | essay
+theme: misc # subconscious | tech-society | misc
 summary: '(coming soon)'
-tags: []               # optional
-sourceTitle: ''        # optional
-sourceAuthor: ''       # optional
-sourceLink: ''         # optional URL
-rating: 3              # optional (books/papers)
+tags: [] # optional
+sourceTitle: '' # optional
+sourceAuthor: '' # optional
+sourceLink: '' # optional URL
+rating: 3 # optional (books/papers)
 draft: false
 ---
 
@@ -39,6 +39,7 @@ Nothing here yet.
 ```
 
 Rules:
+
 - `summary` is required even if it's just "(coming soon)".
 - Draft entries (`draft: true`) stay out of every list/feed.
 - Optional metadata (tags, rating, source fields) is ignored when blank.
