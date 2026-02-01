@@ -4,8 +4,8 @@ import EntryCard from '~/components/entries/EntryCard.astro';
 import { getLatestEntries } from '~/utils/entries';
 
 const metadata = {
-  title: "Niels' notebook",
-  description: 'Small personal site for notes about whatever I just read.',
+  title: "Niels' notitieblok",
+  description: 'Kleine persoonlijke site over dingen die ik heb gelezen/gezien/gehoord.',
 };
 
 const latest = await getLatestEntries(3);
@@ -14,20 +14,20 @@ const hasEntries = latest.length > 0;
 
 <Layout metadata={metadata}>
   <section class="py-16 max-w-3xl mx-auto text-center space-y-4">
-    <p class="text-xs uppercase tracking-[0.5em] text-primary">Niels' notebook</p>
-    <h1 class="text-4xl md:text-5xl font-semibold">Niels' notebook</h1>
-    <p class="text-lg text-muted">I read things. I write things. Mostly to remember what I thought.</p>
-    <p class="text-base text-muted">This is my website. I read stuff. I write about it.</p>
-    <p class="text-base text-muted">This is a small personal site. No big plan. I'll add notes over time.</p>
-    <p class="text-sm text-muted">If it looks empty, that's because it is.</p>
+    <p class="text-xs uppercase tracking-[0.5em] text-primary">Niels' notitieblok</p>
+    <h1 class="text-4xl md:text-5xl font-semibold">Niels' notitieblok</h1>
+    <p class="text-lg text-muted">Een website om mijn gedachten te synthetiseren. Meestal over dingen die ik lees.</p>
+    <p class="text-base text-muted">Crazyyyyyyy goodtimes!! Over het algemeen vergeet ik steeds wat ik heb gelezen en met deze website hoop ik dit te tackelen!! Dit is voor mijzelf dus als je dit leest dan is dat gek.</p>
+    <p class="text-base text-muted">Kleine persoonlijke site. Geen groot plan. Ik zal in de loop van de tijd dingen toevoegen.</p>
+    <p class="text-sm text-muted">Als het leeg uitziet, is dat omdat het dat is.</p>
   </section>
 
   <section class="py-10 space-y-4 max-w-3xl mx-auto">
     <div class="flex items-center justify-between">
-      <h2 class="text-2xl font-semibold">Latest</h2>
-      <a class="text-sm text-primary" href="/library">Library</a>
+      <h2 class="text-2xl font-semibold">Laatste</h2>
+      <a class="text-sm text-primary" href="/library">Bibliotheek</a>
     </div>
-    <p class="text-muted">No notes published yet.</p>
+    <p class="text-muted">Nog niets gepubliceerd</p>
     {
       hasEntries && (
         <div class="space-y-4">

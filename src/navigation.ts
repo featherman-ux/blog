@@ -31,10 +31,8 @@ export const footerData = {
     {
       title: 'Elsewhere',
       links: [
-        { text: 'Email', href: 'mailto:veerman.niels@gmail.com' },
-        { text: 'Mastodon', href: 'https://fosstodon.org/@nielsveerman' },
-        { text: 'GitHub', href: 'https://github.com/nielsveerman' },
-        { text: 'RSS', href: getAsset('/rss.xml') },
+        { text: 'waarisniels.nl', href: 'https://waarisniels.nl' },
+        { text: 'veermandev.nl', href: 'https://veermandev.nl' },
       ],
     },
   ],
