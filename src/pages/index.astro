@@ -32,14 +32,15 @@ const hasEntries = latest.length > 0;
       <h2 class="text-2xl font-semibold">Laatste</h2>
       <a class="text-sm text-primary" href="/library">Bibliotheek</a>
     </div>
-    <p class="text-muted">Nog niets gepubliceerd</p>
     {
-      hasEntries && (
+      hasEntries ? (
         <div class="space-y-4">
           {latest.map((entry) => (
             <EntryCard entry={entry} />
           ))}
         </div>
+      ) : (
+        <p class="text-muted">Nog niets gepubliceerd</p>
       )
     }
   </section>
